@@ -1,0 +1,27 @@
+<nav class="d-flex justify-content-between px-5 navbar navbar-expand-lg navbar-light bg-light">
+  <h2 class="navbar-brand" >Simple AirBnb</h2>
+  <p><%= link_to "Add Flat", flats_path, class: "btn btn-primary" %></p>
+  </div>
+</nav>
+
+
+<h1 class="text-center my-5">All our flats (<%=@flats.count%>)</h1>
+
+<div class="container">
+  <div class="row">
+  <% @flats.each do |flat| %>
+    <div class="col border rounded m-3 shadow p-3 mb-5 bg-body">
+      <div class="bg-light">
+        <h4><%=flat.name %></h4>
+        <h6><%= flat.address %></h6>
+        <p><i class="fa-solid fa-people-group"></i>  <%= flat.number_of_guests %>    <i class="fa-solid fa-euro-sign"></i>    <%= flat.price_per_night %></p>
+      </div>
+
+      <div class="bg-white">
+        <%= link_to "More information", flats_path %>
+      </div>
+
+    </div>
+    <% end %>
+  </div>
+</div>
